@@ -30,6 +30,7 @@ jobs:
         uses: actions/checkout@v2
   
   docker-build-push:
+    needs: laravel-build-test
     runs-on: ubuntu-latest
     
     steps:
