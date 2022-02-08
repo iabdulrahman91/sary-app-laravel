@@ -30,7 +30,7 @@ RUN chmod -R 777 /var/www/html/storage
 RUN chmod -R 777 /var/www/html/bootstrap/cache
 RUN chmod +x /etc/entrypoint.sh
 
-RUN php artisan view:cache
+# RUN php artisan view:cache
 
 EXPOSE 80
 
