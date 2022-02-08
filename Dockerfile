@@ -23,14 +23,14 @@ RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/i
 
 COPY nginx/nginx-site.conf /etc/nginx/sites-enabled/default
 COPY nginx/entrypoint.sh /etc/entrypoint.sh
-
+COPY . /var/www/html/
 COPY --chown=www-data:www-data ./ /var/www/html/
 
 RUN chmod -R 777 /var/www/html/storage
 RUN chmod -R 777 /var/www/html/bootstrap/cache
 RUN chmod +x /etc/entrypoint.sh
 
-# RUN php artisan view:cache
+RUN php artisan view:cache
 
 EXPOSE 80
 
