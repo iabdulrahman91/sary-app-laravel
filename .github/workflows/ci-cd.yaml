@@ -15,7 +15,7 @@ jobs:
         uses: php-actions/composer@v6
         with:
           php_version: "8.0"
-          version: 1
+          version: 2
 
       - name: Create Environment file
         run: cp .env.example .env
