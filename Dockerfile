@@ -32,6 +32,6 @@ RUN chmod +x /etc/entrypoint.sh
 
 RUN php artisan view:cache
 
-EXPOSE 80 443
+EXPOSE 80
 
 ENTRYPOINT ["sh", "/etc/entrypoint.sh"]
