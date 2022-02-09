@@ -36,6 +36,9 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       
+      - name: check files
+        run: ls
+        
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       
