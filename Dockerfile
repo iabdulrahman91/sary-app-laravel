@@ -8,8 +8,26 @@ RUN php artisan key:generate
 
 FROM php:8-fpm
 
-RUN apt-get update -y
-RUN apt-get install -y nginx 
+RUN apt-get update -qq \
+    && apt-get install -y nginx \
+    && apt-get install -y -qq --no-install-recommends \
+        libpq-dev \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
+        libzip-dev \
+    && rm -r /var/lib/apt/lists/* \
+    && docker-php-ext-install \
+        pdo \
+        pdo_pgsql \
+        calendar \
+        gd \
+        bcmath \
+        zip \
+    && pecl install redis \
+    && docker-php-ext-enable redis
+
+RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/
 
 COPY --from=build /app /var/www/html/
 
