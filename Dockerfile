@@ -3,7 +3,8 @@ WORKDIR /app
 COPY . /app
 RUN composer install --optimize-autoloader --no-dev
 
-
+RUN cp .env.example .env
+RUN php artisan key:generate
 
 FROM php:8-fpm
 
