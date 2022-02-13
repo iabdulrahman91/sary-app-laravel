@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Question;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -33,46 +34,65 @@ class CommentTest extends TestCase
         $response->assertStatus(200);
     }
 
-    // public function test_a_comment_can_be_created()
-    // {
-    //     $question = Comment::factory()->create();
+    public function test_a_comment_can_be_created_for_question()
+    {
+        $question = Question::factory()->create();
 
-    //     $response = $this->post('api/questions/' . $question->id . '/comments/', [
-    //         'text' => 'niceee',
-    //     ]);
 
-    //     $response->assertStatus(201);
-    // }
+        $response = $this->post("api/questions/" . $question->id . '/comments' , [
+            'text' => 'niceee',
+        ]);
 
-    // public function test_a_comment_can_be_updated()
-    // {
-    //     $comment = Comment::factory()->forQuestion()->create();
+        $response->assertStatus(201);
+    }
 
-    //     $response = $this->patch('api/comments/'.$comment->id, [
-    //         'text' => 'No, it Red'
-    //     ]);
-    //     $response->assertStatus(200);
-    // }
+    public function test_a_comment_can_be_created_for_answer()
+    {
+        $answer = Answer::factory()->forQuestion()->create();
+
+
+        $response = $this->post("api/answers/" . $answer->id . '/comments' , [
+            'text' => 'niceee',
+        ]);
+
+        $response->assertStatus(201);
+    }
+
+    public function test_a_comment_can_be_updated()
+    {
+        $comment = Comment::factory()->make();
+        $question = Question::factory()->create();
+        $question->comments()->save($comment);
+
+        $response = $this->patch('api/comments/'.$comment->id, [
+            'text' => 'good comment'
+        ]);
+        $response->assertStatus(200);
+    }
 
     
-    // public function test_a_comment_can_be_updated_content()
-    // {
-    //     $comment = Comment::factory()->forQuestion()->create();
+    public function test_a_comment_can_be_updated_content()
+    {
+        $comment = Comment::factory()->make();
+        $question = Question::factory()->create();
+        $question->comments()->save($comment);
 
-    //     $response = $this->patch('api/comments/'.$comment->id, [
-    //         'text' => 'No, it is Red'
-    //     ]);
+        $response = $this->patch('api/comments/'.$comment->id, [
+            'text' => 'good comment'
+        ]);
         
-    //     $response->assertSeeText('it is Red');
-    // }
+        $response->assertSeeText('good comment');
+    }
 
-    // public function test_a_comment_can_be_deleted()
-    // {
-    //     $comment = Comment::factory()->forQuestion()->create();
+    public function test_a_comment_can_be_deleted()
+    {
+        $comment = Comment::factory()->make();
+        $question = Question::factory()->create();
+        $question->comments()->save($comment);
 
-    //     $response = $this->delete('api/comments/'.$comment->id);
+        $response = $this->delete('api/comments/'.$comment->id);
 
-    //     $this->assertDatabaseMissing('comments', ['id' => $comment->id]);
+        $this->assertDatabaseMissing('comments', ['id' => $comment->id]);
 
-    // }
+    }
 }

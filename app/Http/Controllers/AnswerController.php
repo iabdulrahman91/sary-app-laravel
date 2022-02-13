@@ -105,5 +105,8 @@ class AnswerController extends Controller
     public function destroy(Answer $answer)
     {
         $answer->delete();
+        return response()
+                ->json(['deleted' => true])
+                ->setStatusCode(204);
     }
 }

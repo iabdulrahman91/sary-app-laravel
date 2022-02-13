@@ -110,5 +110,8 @@ class QuestionController extends Controller
     {
         //
         $question->delete();
+        return response()
+                ->json(['deleted' => true])
+                ->setStatusCode(204);
     }
 }

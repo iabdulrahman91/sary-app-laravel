@@ -76,7 +76,26 @@ class CommentController extends Controller
      */
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'text' => ['sometimes', 'string'],
+
+        ]);
+
+        // return bad request code with error msg
+        if ($validator->fails()) {
+            return response()
+                ->json(['error' => $validator->errors()])
+                ->setStatusCode(400);
+        }
+
+        if (isset($request['text']))
+        {
+            $validated = $validator->safe()->only(['text']);
+            $comment->update($validated);
+        }
+
+        $comment->save();
+        return new CommentResource($comment);
     }
 
     /**
@@ -87,6 +106,9 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return response()
+                ->json(['deleted' => true])
+                ->setStatusCode(204);
     }
 }
