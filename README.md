@@ -2,6 +2,11 @@
 
 [![ci-cd](https://github.com/iabdulrahman91/sary-app-laravel/actions/workflows/ci-cd.yaml/badge.svg)](https://github.com/iabdulrahman91/sary-app-laravel/actions/workflows/ci-cd.yaml)
 
+---
+## APP URL
+[a2eb4a6cf886243ba8f6bda8e9d0d7df-b4a37456e225c801.elb.us-east-2.amazonaws.com]
+
+
 This Repo is to Demonstrate my ability to:
 
 - Build RESTful API using Laravel PHP
