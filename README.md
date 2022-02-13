@@ -7,11 +7,11 @@
 
 
 **main api**
-[API URL] (http://a2eb4a6cf886243ba8f6bda8e9d0d7df-b4a37456e225c801.elb.us-east-2.amazonaws.com/api)
+[API URL] (http://a7fb6ec99dd5e44639b36cef3699092f-feb52c773df7eb64.elb.us-east-2.amazonaws.com/api)
 
 **questions**
 
-[Main URL] (http://a2eb4a6cf886243ba8f6bda8e9d0d7df-b4a37456e225c801.elb.us-east-2.amazonaws.com/api/questions)
+[Main URL] (http://a7fb6ec99dd5e44639b36cef3699092f-feb52c773df7eb64.elb.us-east-2.amazonaws.com/api/questions)
 
 **You can use the provided `Postman` config file To TEST the API**
 
