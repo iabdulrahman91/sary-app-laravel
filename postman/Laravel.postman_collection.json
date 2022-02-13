@@ -30,14 +30,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/api/answers/",
+					"raw": "{{base_url}}/api/answers/1",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"api",
 						"answers",
-						""
+						"1"
 					]
 				}
 			},
@@ -50,7 +50,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"text\": \"answer A\"\n}",
+					"raw": "{\n    \"text\": \"answer A\",\n    \"question_id\" : \"1\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,7 +99,16 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "{{base_url}}/api/questions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"questions"
+					]
+				}
 			},
 			"response": []
 		},
@@ -108,7 +117,17 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "{{base_url}}/api/questions/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -117,6 +136,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\" : \"what is your fav color?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "{{base_url}}/api/questions/",
 					"host": [
@@ -133,15 +161,12 @@
 		},
 		{
 			"name": "Question -update",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"text\": \"new question\",\n    \"tags\": [5]\n}",
+					"raw": "{\n    \"text\": \"new question\",\n    \"tags\": [2]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -149,14 +174,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/api/questions/1",
+					"raw": "{{base_url}}/api/questions/2",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"api",
 						"questions",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -168,10 +193,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/api/tags/",
-					"protocol": "http",
+					"raw": "{{base_url}}/api/tags/",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
 					"path": [
 						"api",
@@ -188,10 +212,37 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/api/tags/",
-					"protocol": "http",
+					"raw": "{{base_url}}/api/tags/3",
 					"host": [
-						"localhost"
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tags",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tag - store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\" : \"new\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tags/",
+					"host": [
+						"{{base_url}}"
 					],
 					"path": [
 						"api",
@@ -203,34 +254,23 @@
 			"response": []
 		},
 		{
-			"name": "Tag - store",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
 			"name": "Tag - update",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "quesitons",
-							"value": "[1]",
-							"type": "default"
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"new_tag\",\n    \"questions\" : [1]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
+					}
 				},
 				"url": {
-					"raw": "http://localhost/api/tags/1",
-					"protocol": "http",
+					"raw": "{{base_url}}/api/tags/1",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
 					"path": [
 						"api",
@@ -246,15 +286,24 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"nice question\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{base_url}}/api/questions/15/comments",
+					"raw": "{{base_url}}/api/questions/1/comments",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"api",
 						"questions",
-						"15",
+						"1",
 						"comments"
 					]
 				}
@@ -266,15 +315,24 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"nice answer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{base_url}}/api/answer/15/comments",
+					"raw": "{{base_url}}/api/answers/1/comments",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"api",
-						"answer",
-						"15",
+						"answers",
+						"1",
 						"comments"
 					]
 				}
