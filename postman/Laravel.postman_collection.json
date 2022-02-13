@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "93c3f82e-eb88-4812-b977-0bcae3390b88",
+		"name": "Laravel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Answer - index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/answers/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"answers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Answer - show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/answers/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"answers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Answer - store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"answer A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/answers/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"answers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Answer - update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\" : \"new answer\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/answers/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"answers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Question - index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Question - show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Question - store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/questions/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Question -update",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"new question\",\n    \"tags\": [5]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/questions/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tag - index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/tags/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"tags",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tag - show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/tags/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"tags",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tag - store",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Tag - update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "quesitons",
+							"value": "[1]",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/tags/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"tags",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create comment for Question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/questions/15/comments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						"15",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create comment for Answer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/answer/15/comments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"answer",
+						"15",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://a2eb4a6cf886243ba8f6bda8e9d0d7df-b4a37456e225c801.elb.us-east-2.amazonaws.com",
+			"type": "default"
+		}
+	]
+}
